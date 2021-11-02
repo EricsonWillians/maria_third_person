@@ -6,7 +6,9 @@ It also uses a blender-modified version of the [Silent Hill 2 Maria Model](https
 
 ### Instructions
 
-Just run gzdoom with the -file command-line argument or use the mod launcher of your preference, just put maria_third_person last in the load order.
+* Download this repo as a .zip.
+* Don't extract it.
+* Just run gzdoom with the -file command-line argument or use the mod launcher of your preference, just put maria_third_person.zip last in the load order.
 
 ### Features
 (Not available in other third-person mods)
