@@ -2,7 +2,7 @@ class CustomDoomPlayer : DoomPlayer
 {
 	Default
 	{
-		Speed 0.6;
+		Speed 0.8;
 		Health 100;
 		Radius 16;
 		Height 56;
@@ -57,10 +57,10 @@ class CustomDoomPlayer : DoomPlayer
 		MAR1 HIJ 6;
 		Loop;
 	Missile:
-		MAR1 ABC 14;
+		MAR1 L 14 BRIGHT;
 		Goto Spawn;
 	Melee:
-		MAR1 ABC 14;
+		MAR1 L 14 BRIGHT;
 		Goto Missile;
 	Pain:
 		MAR1 ABC 14;

@@ -21,4 +21,5 @@ Model CustomDoomPlayer {
 	FrameIndex MAR1 I 0 95
 	FrameIndex MAR1 J 0 110
 	FrameIndex MAR1 K 0 120
+	FrameIndex MAR1 L 0 130
 }
