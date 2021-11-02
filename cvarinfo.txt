@@ -1,0 +1,18 @@
+// Precise Crosshair variables /////////////////////////////////////////////////
+
+server bool pc_enable = true;
+
+// Precise Crosshair options ///////////////////////////////////////////////////
+
+user bool pc_flip_y = false;
+user bool pc_flip_x = false;
+
+user bool pc_disable_slot_1    = false;
+user bool pc_disable_not_ready = false;
+user bool pc_disable_no_weapon = true;
+
+user bool pc_target_health = false;
+
+// Precise External Interface //////////////////////////////////////////////////
+
+user float pc_y;

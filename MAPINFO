@@ -1,0 +1,7 @@
+gameinfo
+{
+
+  AddEventHandlers = "pc_EventHandler"
+  PlayerClasses = "CustomDoomPlayer"
+
+} // gameinfo

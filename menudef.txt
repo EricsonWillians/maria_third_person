@@ -1,0 +1,46 @@
+// Entry point /////////////////////////////////////////////////////////////////
+
+AddOptionMenu OptionsMenu
+{
+  SubMenu "$PC_TITLE", pc_Menu
+}
+
+// Menus ///////////////////////////////////////////////////////////////////////
+
+OptionMenu pc_Menu
+{
+
+  Title      "$PC_TITLE"
+
+  StaticText "$PC_ENGINE"          , 1
+
+  StaticText ""
+  StaticText "$PC_OFF"
+  Option     "$HUDMNU_CROSSHAIRON" , crosshairon, OnOff
+
+  StaticText ""
+  StaticText "$PC_NONE"
+  Option     "$HUDMNU_CROSSHAIR"   , crosshair, Crosshairs
+
+  StaticText ""
+  StaticText "$PC_OTHER"
+  Submenu    "$OPTMNU_HUD"         , HUDOptions
+
+  StaticText ""
+  StaticText "$PC_OPTIONS"         , 1
+  StaticText ""
+  Option     "$PC_ENABLE"          , pc_enable            , YesNo
+
+  StaticText ""
+  Option     "$PC_MIRROR_H"        , pc_flip_x            , YesNo
+  Option     "$PC_MIRROR_V"        , pc_flip_y            , YesNo
+
+  StaticText ""
+  Option     "$PC_SLOT_1"          , pc_disable_slot_1    , YesNo
+  Option     "$PC_NOT_READY"       , pc_disable_not_ready , YesNo
+  Option     "$PC_NO_WEAPON"       , pc_disable_no_weapon , YesNo
+
+  StaticText ""
+  Option     "$PC_TARGET_COLOR"    , pc_target_health     , YesNo
+
+} // OptionMenu pc_Menu

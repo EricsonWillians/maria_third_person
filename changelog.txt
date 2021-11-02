@@ -1,0 +1,55 @@
+
+v1.4.1
+- 2020-07-24 update Readme
+- 2020-07-24 close #11: fix disabled crosshair on certain weapons
+- 2020-07-22 move menu strings to language lump
+- 2020-07-22 add Pixel crosshair
+- 2019-12-15 update Readme
+
+1.4
+- 2019-12-15 fix #10: weirdness with max distance
+- 2019-12-15 make crosshair y position change slightly smoother
+- 2019-12-13 update Readme
+- 2019-12-13 close #7: option to color crosshair depending on target health
+- 2019-12-13 port Enhanced crosshair health color from GZDoom
+- 2019-12-13 fix #4: aim when crouching
+- 2019-12-13 update build script
+- 2019-07-31 ask Github not to recognize *.zs as an unrelated language
+
+1.3
+- 2019-06-12 resolve #2: option to hide crosshair when no weapon is selected/weapon is holstered
+- 2019-06-12 resolve #3: add minimalistic crosshairs
+
+1.2.3
+- 2019-06-09 fix menu
+- 2019-06-09 update Readme
+
+1.2.2
+- 2019-06-09 fix ZScript version
+- 2019-06-08 update Readme
+- 2019-06-08 add GZDoom version to Readme
+- 2019-06-08 improve weapon ready detection
+- 2019-06-08 update menudef
+- 2019-06-08 update Readme
+
+1.2.1
+- 2019-06-08 bump minimal ZScript version
+- 2019-06-05 add links to Readme
+- 2019-06-05 fix #1: update LibEye
+- 2019-05-28 fix memory leak on game loading
+
+1.2
+- 2019-05-26 add options to disable precise crosshair on slot 1 and when weapon is not ready
+- 2019-05-26 add options to flip the crosshair horizontally and vertically
+- 2019-05-26 remove debug output
+- 2019-05-26 update Readme
+- 2019-05-26 add a cvar with Y position for other mods to read
+- 2019-05-23 add an on/off switch
+
+1.1
+- 2019-05-22 added prefix to libeye to avoid conflicts with other mods
+- 2019-05-22 update libeye to support different screen sizes
+- 2019-05-18 add license file
+
+1.0
+- 2019-05-18 init

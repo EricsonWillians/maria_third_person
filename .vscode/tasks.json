@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run GZDoom",
+            "type": "shell",
+            "command": "gzdoom -iwad doom2.wad -warp 1 -file D:\\Doom\\wads\\dark7\\Dark7.wad D:\\Doom\\mods\\maria_third_person.zip",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":["ZIP mod folder"]
+        },
+        {
+            "label": "ZIP mod folder",
+            "type": "shell",
+            "command": "Compress-Archive -Path D:\\Doom\\mods\\maria_third_person\\* -DestinationPath D:\\Doom\\mods\\maria_third_person -Update",
+            "problemMatcher": [],
+            "group": "build"
+        },
+    ]
+}
