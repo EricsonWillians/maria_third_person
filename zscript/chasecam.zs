@@ -117,11 +117,11 @@ class CameraRunner : Inventory
 		[campos, anglevalue, pitchvalue] = ReturnCamPos(owner);
 		if (!CheckForCamera("ChaseCam2",C_TID + plrnum))
 		{
-			Actor cameraactor;
-			bool cameraspawned;
-			[cameraspawned, cameraactor] = self.ExtSpawn ("ChaseCam2", campos, C_TID+plrnum, angle);
+			
+			pc_EventHandler Event = pc_EventHandler(EventHandler.Find("pc_EventHandler"));
+			[Event.cameraSpawned, Event.cameraActor] = self.ExtSpawn ("ChaseCam2", campos, C_TID+plrnum, angle);
 			if (CheckForCamera ("ChaseCam2", C_TID + plrnum))
-			owner.SetCamera(cameraactor);
+			owner.SetCamera(Event.cameraActor);
 			else
 			{
 				Console.MidPrint ("INDEXFONT_DOOM","Camera script failed to initialize.");

@@ -49,18 +49,23 @@ class pc_EventHandler : EventHandler
 // private: ////////////////////////////////////////////////////////////////////
 
   private
+  bool drawPreciseCrosshair;
   bool isRunning;
+  bool isFirstPerson;
   bool isFrontView;
   PlayerInfo player;
   PlayerPawn pawn;
   int playerAngle;
   int cameraDistance;
-
+  Actor cameraActor;
+  bool cameraSpawned;
   private
   void initialize()
   {
     
+    drawPreciseCrosshair = true;
     isRunning = false;
+    isFirstPerson = false;
     isFrontView = false;
     player = players[consolePlayer];
     pawn = player.mo;
@@ -99,6 +104,14 @@ class pc_EventHandler : EventHandler
           isRunning = true;
           pawn.SetState(runningState, true);
         }
+        // Del button
+        if (pressedKey == 211) {
+          if (isFirstPerson) {
+            isFirstPerson = false;
+          } else if (!isFirstPerson) {
+            isFirstPerson = true;
+          }
+        }
         // Scroll button
         if (pressedKey == 258) {
           isFrontView = true;
@@ -131,17 +144,19 @@ class pc_EventHandler : EventHandler
       playerAngle = 180;
     }
 
-    let cameraRunner = pawn.FindInventory("CameraRunner");
-    CVar clChase = CVar.FindCVar("cl_chase");
-    if (clChase) {
-      if (clChase.GetBool() == true) {
-        cameraRunner.RunCameraNew();
-      }
-      if (clChase.GetBool() == false) {
-        cameraRunner.TerminateCamera();
-      }
+    let cameraRunner = pawn.FindInventory("CameraRunner", true);
+    // If first person is toggled,
+    // the third-person camera actor (ChaseCam2) is removed from the CameraRunner inventory,
+    // thus returning to the original first-person.
+    if (isFirstPerson == true) {
+      drawPreciseCrosshair = false;
+      cameraRunner.owner.SetCamera(NULL);
     }
-    
+    // Otherwise, the cameraActor, which is defined on chasecam.zs, becomes the inventory's owner camera.
+    if (isFirstPerson == false) {
+      drawPreciseCrosshair = true;
+      cameraRunner.owner.SetCamera(cameraActor);
+    }
   }
 
   private
@@ -225,18 +240,21 @@ class pc_EventHandler : EventHandler
 
     _yPositionInterpolator.Update(int(drawPos.y));
 
-    Screen.DrawTexture( _crosshairTexture
-                      , false
-                      , screenWidth / 2
-                      , _yPositionInterpolator.GetValue()
-                      , DTA_DestWidth    , width
-                      , DTA_DestHeight   , height
-                      , DTA_AlphaChannel , true
-                      , DTA_KeepRatio    , true
-                      , DTA_FillColor    , crossColor & 0xFFFFFF
-                      , DTA_FlipX        , _settings.isFlipX()
-                      , DTA_FlipY        , _settings.isFlipY()
-                      );
+    if (drawPreciseCrosshair) {
+      Screen.DrawTexture( _crosshairTexture
+          , false
+          , screenWidth / 2
+          , _yPositionInterpolator.GetValue()
+          , DTA_DestWidth    , width
+          , DTA_DestHeight   , height
+          , DTA_AlphaChannel , true
+          , DTA_KeepRatio    , true
+          , DTA_FillColor    , crossColor & 0xFFFFFF
+          , DTA_FlipX        , _settings.isFlipX()
+          , DTA_FlipY        , _settings.isFlipY()
+      );
+    }
+    
   }
 
   /**
